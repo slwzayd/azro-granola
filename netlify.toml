@@ -1,0 +1,40 @@
+# Netlify-configuratie voor de Azro granola bestelsite
+
+[build]
+  # De map met de website die bezoekers te zien krijgen
+  publish = "site"
+  # De map met de servercode
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  # Poort voor `netlify dev` (lokaal testen)
+  port = 8888
+  publish = "site"
+
+# Nette URL's zonder .html
+[[redirects]]
+  from = "/product"
+  to = "/product.html"
+  status = 200
+
+[[redirects]]
+  from = "/afrekenen"
+  to = "/afrekenen.html"
+  status = 200
+
+[[redirects]]
+  from = "/bevestiging"
+  to = "/bevestiging.html"
+  status = 200
+
+# Beveiligingsheaders
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Afrekenen — Azro granola</title>
+<meta name="theme-color" content="#F7F7F5">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/img/azro-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/stijl.css">
+</head>
+<body>
+<div class="pagina">
+
+  <header class="header">
+    <a class="header__link" href="/">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+      Terug
+    </a>
+    <div class="header__veilig">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+      Veilig betalen
+    </div>
+  </header>
+
+  <!-- Leeg winkelmandje -->
+  <section class="sectie" id="leeg-mandje" hidden>
+    <h1 class="kop-m">Je winkelmandje is leeg</h1>
+    <p class="inleiding">Kies eerst een granola om verder te gaan.</p>
+    <a class="knop knop--hoofd" href="/">Naar de winkel</a>
+  </section>
+
+  <!-- Afrekenen -->
+  <form id="afrekenen" novalidate hidden>
+
+    <section class="sectie" style="padding-bottom: 8px">
+      <h1 class="kop-m">Afrekenen</h1>
+      <div class="paneel" id="overzicht" aria-live="polite"></div>
+    </section>
+
+    <section class="sectie" style="gap: 12px">
+      <h2 class="kop-s" id="kop-levering">Ophalen of leveren</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px" id="levering" role="group" aria-labelledby="kop-levering"></div>
+      <p class="zacht" style="font-size: 13px; margin: 0" id="levering-uitleg"></p>
+    </section>
+
+    <section class="sectie sectie--strak" style="gap: 12px">
+      <h2 class="kop-s">Jouw gegevens</h2>
+
+      <label class="veld">Naam
+        <input type="text" id="naam" name="naam" autocomplete="name" placeholder="Voornaam en naam" required aria-describedby="fout-naam">
+        <span class="veld__fout" id="fout-naam" role="alert"></span>
+      </label>
+
+      <label class="veld">E-mail
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="jij@voorbeeld.be" required aria-describedby="fout-email">
+        <span class="veld__fout" id="fout-email" role="alert"></span>
+      </label>
+
+      <label class="veld">Instagram (optioneel)
+        <input type="text" id="instagram" name="instagram" placeholder="@gebruikersnaam">
+      </label>
+    </section>
+
+    <section class="sectie sectie--strak" style="gap: 12px">
+      <h2 class="kop-s" id="kop-adres">Adres</h2>
+      <p class="zacht" style="font-size: 13px; margin: 0" id="adres-uitleg"></p>
+
+      <div class="rooster-2">
+        <label class="veld">Straat
+          <input type="text" id="straat" name="straat" autocomplete="address-line1" placeholder="Straatnaam" required aria-describedby="fout-straat">
+          <span class="veld__fout" id="fout-straat" role="alert"></span>
+        </label>
+        <label class="veld">Nr.
+          <input type="text" id="nummer" name="nummer" placeholder="12" required aria-describedby="fout-nummer">
+          <span class="veld__fout" id="fout-nummer" role="alert"></span>
+        </label>
+      </div>
+
+      <div class="rooster-3">
+        <label class="veld">Postcode
+          <input type="text" id="postcode" name="postcode" inputmode="numeric" autocomplete="postal-code" placeholder="2000" required aria-describedby="fout-postcode">
+          <span class="veld__fout" id="fout-postcode" role="alert"></span>
+        </label>
+        <label class="veld">Gemeente
+          <input type="text" id="gemeente" name="gemeente" autocomplete="address-level2" placeholder="Antwerpen" required aria-describedby="fout-gemeente">
+          <span class="veld__fout" id="fout-gemeente" role="alert"></span>
+        </label>
+      </div>
+
+      <label class="veld">Telefoon (optioneel)
+        <input type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="0470 12 34 56">
+      </label>
+    </section>
+
+    <section class="sectie sectie--strak" style="gap: 12px">
+      <h2 class="kop-s" id="kop-betalen">Betalen</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px" id="betaalmethodes" role="group" aria-labelledby="kop-betalen"></div>
+    </section>
+
+    <section class="sectie" style="padding-top: 4px; padding-bottom: 32px; gap: 12px">
+      <p class="melding melding--fout" id="formulier-fout" role="alert"></p>
+      <button type="submit" class="knop knop--hoofd" id="betaalknop">Betalen</button>
+      <p class="voetnoot">Betaling via Mollie. Je krijgt een bevestiging per e-mail.</p>
+    </section>
+
+  </form>
+
+  <div class="laden" id="laden">Winkelmandje laden…</div>
+
+</div>
+
+<script type="module" src="/js/afrekenen.js"></script>
+</body>
+</html>

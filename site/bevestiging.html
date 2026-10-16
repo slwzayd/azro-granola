@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bestelling — Azro granola</title>
+<meta name="theme-color" content="#F7F7F5">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/img/azro-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/stijl.css">
+</head>
+<body>
+<div class="pagina">
+  <div class="bevestiging" id="inhoud" aria-live="polite">
+    <div class="bevestiging__boven">
+      <div class="merkteken merkteken--wachten" id="merkteken" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="9"></circle></svg>
+      </div>
+      <h1 class="kop-xl" id="titel">Even geduld…</h1>
+      <p class="bevestiging__tekst" id="uitleg">We halen de status van je betaling op.</p>
+      <div class="paneel" id="details" hidden style="gap: 10px; font-size: 15px"></div>
+    </div>
+    <div class="bevestiging__onder" id="knoppen"></div>
+  </div>
+</div>
+
+<script type="module" src="/js/bevestiging.js"></script>
+</body>
+</html>

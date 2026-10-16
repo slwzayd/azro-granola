@@ -1,0 +1,15 @@
+# Geheimen — mogen nooit in git
+.env
+.env.*
+!.env.example
+
+# Afhankelijkheden en build
+node_modules/
+.netlify/
+dist/
+
+# Systeembestanden
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

@@ -1,0 +1,13 @@
+{
+  "name": "azro-granola",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bestelsite voor Azro granola — statische site met Netlify Functions en Mollie",
+  "type": "module",
+  "scripts": {
+    "dev": "npx netlify dev",
+    "test": "node test/prijzen.test.mjs && node test/server.test.mjs",
+    "test:prijzen": "node test/prijzen.test.mjs",
+    "test:server": "node test/server.test.mjs"
+  }
+}

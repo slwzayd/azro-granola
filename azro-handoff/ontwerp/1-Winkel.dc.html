@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Winkel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=DM+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1B1B1B}a:hover{color:#4A4A46}
+.card{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px;background:#FFFFFF;border:1px solid #E4E4E0;border-radius:16px;text-decoration:none;color:#1B1B1B}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 900px; box-sizing: border-box; background: #F7F7F5; color: #1B1B1B; font-family: 'DM Sans', sans-serif; display: flex; flex-direction: column">
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; background: #FFFFFF; border-bottom: 1px solid #E4E4E0">
+<img src="/_blob/8d18f27b7b831b99203789a7e08606b3" alt="azro" style="display: block; height: 30px; width: auto">
+<a href="Checkout.dc.html" aria-label="Winkelmandje" style="display: flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; font-weight: 600">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+<span>0</span>
+</a>
+</header>
+<section style="padding: 32px 20px 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #5F5F5A">Huisgemaakt · kleine batches</div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; line-height: .95">Verse granola</h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5F5F5A">Kies je smaak, maat en toppings. Ook glutenvrij verkrijgbaar.</p>
+</section>
+<section style="padding: 0 20px 28px; display: flex; flex-direction: column; gap: 12px">
+
+<a class="card" href="Product.dc.html">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">Signature</div>
+<div style="font-size: 14px; line-height: 1.4; color: #5F5F5A">[korte beschrijving]</div>
+<div style="font-size: 14px; font-weight: 600">vanaf [PRIJS]</div>
+</div>
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+
+<a class="card" href="Product.dc.html">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">Apple Cinnamon</div>
+<div style="font-size: 14px; line-height: 1.4; color: #5F5F5A">[korte beschrijving]</div>
+<div style="font-size: 14px; font-weight: 600">vanaf [PRIJS]</div>
+</div>
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+
+<a class="card" href="Product.dc.html">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">Honey Cacao</div>
+<div style="font-size: 14px; line-height: 1.4; color: #5F5F5A">[korte beschrijving]</div>
+<div style="font-size: 14px; font-weight: 600">vanaf [PRIJS]</div>
+</div>
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+
+</section>
+<section style="margin: 0 20px 32px; padding: 20px; border-radius: 16px; background: #1B1B1B; color: #FFFFFF; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #CDEB7F">Zo werkt het</div>
+<div style="font-size: 14px; line-height: 1.7">1. Kies smaak, maat en toppings<br>2. Betaal met bankkaart of Apple Pay<br>3. Ophalen of laten leveren in [regio]</div>
+</section>
+<footer style="margin-top: auto; padding: 20px; font-size: 12px; color: #5F5F5A; border-top: 1px solid #E4E4E0">Azro granola · <a href="https://instagram.com/azro.granola">@azro.granola</a> · [contact e-mail]</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

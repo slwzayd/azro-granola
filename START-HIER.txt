@@ -1,0 +1,117 @@
+===============================================================
+  AZRO GRANOLA - BESTELSITE
+  Begin hier
+===============================================================
+
+Dit is de volledige bestelsite voor Azro granola.
+Je hebt geen programmeerkennis nodig om ze online te zetten.
+
+
+STAP 1 - PAK DE MAP UIT
+---------------------------------------------------------------
+Je hebt dit als ZIP-bestand gekregen. Pak het eerst uit:
+
+  Windows : rechtermuisknop op het ZIP-bestand
+            -> "Alles uitpakken..." -> "Uitpakken"
+
+  Mac     : dubbelklik op het ZIP-bestand
+
+BELANGRIJK: werk nooit rechtstreeks IN het ZIP-bestand.
+Windows laat je erin kijken, maar niets werkt dan goed.
+Pak het eerst echt uit naar een gewone map.
+
+
+STAP 2 - BEKIJK DE SITE (zonder iets te installeren)
+---------------------------------------------------------------
+Wil je gewoon even zien hoe het eruitziet?
+
+  Open de map "site" en dubbelklik op "index.html".
+
+Let op: zo zie je enkel de vormgeving. Het winkelmandje en
+het betalen werken NIET op deze manier. Daarvoor moet de site
+online staan (stap 4).
+
+
+STAP 3 - LEES DE HANDLEIDING
+---------------------------------------------------------------
+Open het bestand:
+
+  HANDLEIDING.md
+
+Dat is een tekstbestand. Openen kan zo:
+
+  Windows : rechtermuisknop -> "Openen met" -> Kladblok
+  Mac     : rechtermuisknop -> "Open met" -> TextEdit
+
+Mooier leesbaar (met opmaak) in een gratis programma zoals
+Visual Studio Code: https://code.visualstudio.com
+
+De handleiding legt alles stap voor stap uit:
+  1. Mollie-account aanmaken (voor de betalingen)
+  2. Resend-account aanmaken (voor de e-mails)
+  3. De site online zetten op Netlify - gratis
+  4. Je geheime sleutels instellen
+  5. Alles testen zonder echt geld
+  6. Apple Pay aanzetten
+  7. Overschakelen naar echte betalingen
+  8. Prijzen aanpassen
+  9. De link in de Instagram-bio zetten
+
+
+STAP 4 - DE SITE ONLINE ZETTEN
+---------------------------------------------------------------
+Dit is hoofdstuk 3 van de handleiding. De snelste manier:
+
+  1. Maak een gratis account op https://app.netlify.com
+  2. Sleep de VOLLEDIGE uitgepakte map in het venster
+
+Sleep de hele map, dus niet alleen de map "site". Netlify heeft
+ook "netlify.toml" en de map "netlify" nodig om te werken.
+
+
+PRIJZEN AANPASSEN
+---------------------------------------------------------------
+Alle prijzen, smaken, toppings en teksten staan in EEN bestand:
+
+  site/config.js
+
+Open het met Kladblok of TextEdit. Overal waar "PAS AAN" staat,
+mag je iets wijzigen. Gebruik een PUNT als decimaalteken,
+dus 12.00 en niet 12,00.
+
+De prijzen die er nu in staan zijn VOORBEELDEN. Vervang ze door
+de echte prijzen voor je de site online zet.
+
+
+WAT ZIT WAAR?
+---------------------------------------------------------------
+  START-HIER.txt    dit bestand
+  HANDLEIDING.md    de volledige uitleg, stap voor stap
+  README.md         korte technische samenvatting
+
+  site/             de website zelf
+    config.js         <- HIER pas je prijzen en teksten aan
+    index.html        winkel
+    product.html      granola kiezen
+    afrekenen.html    winkelmandje en gegevens
+    bevestiging.html  bedankpagina
+
+  netlify/          de servercode (betalingen en e-mails)
+  test/             controleert of de prijzen kloppen
+  azro-handoff/     de originele ontwerpen, enkel ter referentie
+
+
+VEILIGHEID
+---------------------------------------------------------------
+In deze map staan GEEN wachtwoorden of sleutels. Dat hoort ook
+zo. Je vult je eigen sleutels later in op de Netlify-website
+(hoofdstuk 4 van de handleiding).
+
+Zet je sleutels nooit in deze bestanden en stuur ze nooit door
+via e-mail of WhatsApp.
+
+
+VRAGEN?
+---------------------------------------------------------------
+Hoofdstuk 11 van HANDLEIDING.md ("Wat als er iets misgaat?")
+behandelt de meest voorkomende problemen.

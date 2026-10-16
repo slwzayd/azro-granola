@@ -1,0 +1,694 @@
+/* =============================================================================
+   AZRO GRANOLA — stijl
+   Kleuren, lettertypes en maten komen uit het ontwerp.
+   Mobiel eerst (390 px), met een rustige desktopweergave daarboven.
+   ============================================================================= */
+
+:root {
+  --bg: #F7F7F5;
+  --kaart: #FFFFFF;
+  --rand: #E4E4E0;
+  --rand-sterk: #DADAD5;
+  --rand-grijs: #8A8A84;
+  --tekst: #1B1B1B;
+  --tekst-zacht: #5F5F5A;
+  --tekst-hover: #4A4A46;
+  --lime: #CDEB7F;
+  --lime-licht: #F3F9E2;
+  --donker: #1B1B1B;
+  --fout: #A3231B;
+  --fout-bg: #FDF2F1;
+
+  --titel: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
+  --tekst-font: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --radius-kaart: 16px;
+  --radius-veld: 12px;
+  --radius-keuze: 14px;
+}
+
+* { box-sizing: border-box; }
+
+/* Moet boven de display-regels hieronder staan, anders blijft een verborgen
+   blok (bv. "winkelmandje is leeg") toch zichtbaar. */
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tekst);
+  font-family: var(--tekst-font);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--tekst); }
+a:hover { color: var(--tekst-hover); }
+
+img { max-width: 100%; }
+
+/* Zichtbare focus voor toetsenbordgebruikers */
+:focus-visible {
+  outline: 3px solid var(--tekst);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Enkel voor schermlezers */
+.enkel-screenreader {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Paginaraamwerk -------------------------------------------------------- */
+
+.pagina {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .pagina { max-width: 720px; }
+  body { background: #F1F1EE; }
+  .pagina {
+    box-shadow: 0 0 0 1px var(--rand);
+    min-height: 100vh;
+  }
+}
+
+/* --- Header ---------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  background: var(--kaart);
+  border-bottom: 1px solid var(--rand);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header__logo { display: block; height: 30px; width: auto; }
+.header__logo--klein { height: 26px; }
+
+.header__link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 4px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--tekst);
+}
+
+.header__veilig {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--tekst-zacht);
+}
+
+/* --- Typografie ------------------------------------------------------------ */
+
+.kop-xl, .kop-l, .kop-m, .kop-s {
+  margin: 0;
+  font-family: var(--titel);
+  font-weight: 800;
+}
+
+.kop-xl { font-size: 40px; line-height: .95; }
+.kop-l  { font-size: 34px; line-height: 1; }
+.kop-m  { font-size: 32px; line-height: 1.05; }
+.kop-s  { font-size: 20px; line-height: 1.2; }
+
+.kop-veld {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.bovenkop {
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+}
+
+.inleiding {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--tekst-zacht);
+}
+
+.zacht { color: var(--tekst-zacht); }
+
+/* --- Secties --------------------------------------------------------------- */
+
+.sectie {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sectie--kop { padding: 32px 20px 24px; gap: 12px; }
+.sectie--strak { padding-top: 0; }
+
+/* --- Winkelpagina: smaakkaarten -------------------------------------------- */
+
+.kaartenlijst {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 700px) {
+  .kaartenlijst {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.kaart-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--kaart);
+  border: 1px solid var(--rand);
+  border-radius: var(--radius-kaart);
+  text-decoration: none;
+  color: var(--tekst);
+  min-height: 44px;
+}
+
+.kaart-link:hover { border-color: var(--rand-grijs); color: var(--tekst); }
+
+.kaart-link__tekst {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kaart-link__naam {
+  font-family: var(--titel);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.kaart-link__beschrijving {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--tekst-zacht);
+}
+
+.kaart-link__prijs { font-size: 14px; font-weight: 600; }
+
+/* --- Uitlegblok (zwart) ---------------------------------------------------- */
+
+.uitlegblok {
+  margin: 0 20px 32px;
+  padding: 20px;
+  border-radius: var(--radius-kaart);
+  background: var(--donker);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.uitlegblok__titel {
+  font-family: var(--titel);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--lime);
+}
+
+.uitlegblok__tekst { font-size: 14px; line-height: 1.7; }
+
+/* --- Footer ---------------------------------------------------------------- */
+
+.footer {
+  margin-top: auto;
+  padding: 20px;
+  font-size: 12px;
+  color: var(--tekst-zacht);
+  border-top: 1px solid var(--rand);
+}
+
+.footer a { color: var(--tekst-zacht); }
+
+/* --- Witte kaart ----------------------------------------------------------- */
+
+.paneel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  background: var(--kaart);
+  border: 1px solid var(--rand);
+  border-radius: var(--radius-kaart);
+}
+
+.scheiding { height: 1px; background: var(--rand); border: 0; margin: 0; }
+
+/* --- Regels in een overzicht ----------------------------------------------- */
+
+.regel {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.regel--klein { font-size: 13px; color: var(--tekst-zacht); line-height: 1.4; }
+.regel--totaal { font-size: 17px; font-weight: 600; }
+.regel__bedrag { font-weight: 600; white-space: nowrap; }
+
+/* --- Smaaktabs (segmented control) ----------------------------------------- */
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  background: #EDEDE9;
+  border-radius: 999px;
+}
+
+.tab {
+  flex: 1;
+  min-height: 44px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--tekst);
+  font-family: var(--tekst-font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab[aria-pressed="true"] { background: var(--donker); color: #FFFFFF; }
+
+/* --- Keuzeknoppen: pill, rij, optie ---------------------------------------- */
+
+.pillen { display: flex; gap: 10px; }
+
+.pill {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 64px;
+  padding: 12px 14px;
+  border: 1px solid var(--rand-sterk);
+  border-radius: var(--radius-keuze);
+  background: var(--kaart);
+  color: var(--tekst);
+  font-family: var(--tekst-font);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pill[aria-pressed="true"] {
+  border: 2px solid var(--tekst);
+  background: var(--lime-licht);
+  padding: 11px 13px; /* compenseert de dikkere rand */
+}
+
+.pill__naam { font-weight: 600; }
+.pill__detail { color: var(--tekst-zacht); }
+
+.rij {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--rand-sterk);
+  border-radius: var(--radius-keuze);
+  background: var(--kaart);
+  color: var(--tekst);
+  font-family: var(--tekst-font);
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rij[aria-pressed="true"] {
+  border: 2px solid var(--tekst);
+  background: var(--lime-licht);
+  padding: 0 15px;
+}
+
+.rij__naam { flex-grow: 1; }
+.rij__prijs { font-size: 14px; color: var(--tekst-zacht); }
+
+.vinkvakje {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--rand-grijs);
+  background: var(--kaart);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.rij[aria-pressed="true"] .vinkvakje {
+  background: var(--lime);
+  border: 2px solid var(--tekst);
+}
+
+.vinkvakje svg { display: none; }
+.rij[aria-pressed="true"] .vinkvakje svg { display: block; }
+
+.optie {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 16px;
+  border: 1px solid var(--rand-sterk);
+  border-radius: var(--radius-keuze);
+  background: var(--kaart);
+  color: var(--tekst);
+  font-family: var(--tekst-font);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.optie[aria-pressed="true"] {
+  border: 2px solid var(--tekst);
+  background: var(--lime-licht);
+  padding: 0 15px;
+}
+
+.bolletje {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--rand-grijs);
+  background: var(--kaart);
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.optie[aria-pressed="true"] .bolletje {
+  border: 5px solid var(--tekst);
+  background: var(--lime);
+}
+
+.optie__bijschrift { font-weight: 400; color: var(--tekst-zacht); }
+
+/* --- Aantal ---------------------------------------------------------------- */
+
+.aantal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aantal__knoppen {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.aantal__waarde {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+}
+
+.knop-rond {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1.5px solid var(--tekst);
+  background: var(--kaart);
+  color: var(--tekst);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.knop-rond:disabled { opacity: .35; cursor: not-allowed; }
+
+/* --- Knoppen --------------------------------------------------------------- */
+
+.knop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--tekst-font);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.knop--hoofd {
+  background: var(--lime);
+  color: var(--tekst);
+  box-shadow: inset 0 0 0 1.5px var(--tekst);
+}
+
+.knop--hoofd:hover { background: #C3E46A; color: var(--tekst); }
+
+.knop--zwart {
+  background: var(--donker);
+  color: #FFFFFF;
+  min-height: 54px;
+}
+
+.knop--zwart:hover { color: #FFFFFF; background: #000000; }
+
+.knop--applepay {
+  background: #000000;
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-size: 17px;
+}
+
+.knop--tekst {
+  background: transparent;
+  min-height: 48px;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.knop:disabled { opacity: .5; cursor: progress; }
+
+/* --- Formulier ------------------------------------------------------------- */
+
+.veld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.veld input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--rand-sterk);
+  border-radius: var(--radius-veld);
+  background: var(--kaart);
+  font-family: var(--tekst-font);
+  font-size: 15px;
+  color: var(--tekst);
+}
+
+.veld input::placeholder { color: #9A9A94; }
+
+.veld input[aria-invalid="true"] {
+  border: 2px solid var(--fout);
+  background: var(--fout-bg);
+}
+
+.veld__fout {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fout);
+  min-height: 0;
+}
+
+.veld__fout:empty { display: none; }
+
+.rooster-2 { display: grid; grid-template-columns: 3fr 1fr; gap: 12px; }
+.rooster-3 { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; }
+.rooster-gelijk { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+/* --- Meldingen ------------------------------------------------------------- */
+
+.melding {
+  padding: 14px 16px;
+  border-radius: var(--radius-veld);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.melding--fout {
+  background: var(--fout-bg);
+  border: 1px solid var(--fout);
+  color: var(--fout);
+}
+
+.melding--rustig {
+  background: var(--kaart);
+  border: 1px solid var(--rand);
+  color: var(--tekst-zacht);
+}
+
+.melding:empty { display: none; }
+
+.voetnoot {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--tekst-zacht);
+  text-align: center;
+}
+
+/* --- Winkelmandje-regels op de afrekenpagina ------------------------------- */
+
+.mandje-regel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mandje-regel__acties {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.knop-mini {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--rand-sterk);
+  border-radius: 999px;
+  background: var(--kaart);
+  color: var(--tekst);
+  font-family: var(--tekst-font);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.knop-mini:hover { border-color: var(--tekst); }
+
+.knop-verwijder {
+  margin-left: auto;
+  min-height: 34px;
+  padding: 0 4px;
+  border: none;
+  background: transparent;
+  color: var(--tekst-zacht);
+  font-family: var(--tekst-font);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.knop-verwijder:hover { color: var(--tekst); }
+
+/* --- Bevestigingspagina ---------------------------------------------------- */
+
+.bevestiging {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 56px 24px 40px;
+}
+
+.bevestiging__boven {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.merkteken {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--tekst);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 2px var(--tekst);
+  flex-shrink: 0;
+}
+
+.merkteken--fout {
+  background: var(--fout-bg);
+  box-shadow: inset 0 0 0 2px var(--fout);
+  color: var(--fout);
+}
+
+.merkteken--wachten { background: #EDEDE9; }
+
+.bevestiging .kop-xl { font-size: 40px; }
+
+.bevestiging__tekst {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--tekst-zacht);
+}
+
+.bevestiging__onder {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- Laadindicatie --------------------------------------------------------- */
+
+.laden {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--tekst-zacht);
+}

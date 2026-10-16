@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Granola kiezen — Azro granola</title>
+<meta name="theme-color" content="#F7F7F5">
+<link rel="icon" href="/img/azro-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/stijl.css">
+</head>
+<body>
+<div class="pagina">
+
+  <header class="header">
+    <a class="header__link" href="/">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+      Terug
+    </a>
+    <a href="/afrekenen.html" class="header__link" data-mandje-link aria-label="Winkelmandje">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+      <span data-mandje-teller>0</span>
+    </a>
+  </header>
+
+  <section class="sectie" style="padding-bottom: 0">
+    <div class="tabs" id="smaaktabs" role="group" aria-label="Kies een smaak"></div>
+  </section>
+
+  <section class="sectie" style="gap: 26px">
+
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 class="kop-l" id="smaak-naam">Granola</h1>
+      <p class="inleiding" id="smaak-beschrijving"></p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <h2 class="kop-veld" id="kop-maat">Maat</h2>
+      <div class="pillen" id="maten" role="group" aria-labelledby="kop-maat"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <h2 class="kop-veld" id="kop-soort">Soort</h2>
+      <div class="pillen" id="soorten" role="group" aria-labelledby="kop-soort"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <h2 class="kop-veld" id="kop-toppings">Extra toppings</h2>
+        <span style="font-size: 13px" class="zacht" id="topping-prijs"></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px" id="toppings" role="group" aria-labelledby="kop-toppings"></div>
+    </div>
+
+    <div class="aantal">
+      <h2 class="kop-veld" id="kop-aantal">Aantal</h2>
+      <div class="aantal__knoppen" role="group" aria-labelledby="kop-aantal">
+        <button type="button" class="knop-rond" id="minder" aria-label="Eén minder">−</button>
+        <div class="aantal__waarde" id="aantal" aria-live="polite">1</div>
+        <button type="button" class="knop-rond" id="meer" aria-label="Eén meer">+</button>
+      </div>
+    </div>
+
+    <div class="paneel" style="gap: 8px; font-size: 14px" aria-live="polite">
+      <div class="regel"><span class="zacht" id="samenvatting-maat">Zakje</span><span id="samenvatting-basis"></span></div>
+      <div class="regel"><span class="zacht">Extra's per zakje</span><span id="samenvatting-extra">—</span></div>
+      <div class="regel"><span class="zacht">Aantal</span><span id="samenvatting-aantal">× 1</span></div>
+      <hr class="scheiding">
+      <div class="regel regel--totaal"><span>Totaal</span><span id="samenvatting-totaal"></span></div>
+    </div>
+
+    <button type="button" class="knop knop--hoofd" id="toevoegen">In winkelmandje</button>
+    <p class="melding melding--rustig" id="bevestigd" role="status" style="text-align:center"></p>
+
+  </section>
+</div>
+
+<script type="module" src="/js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Product kiezen</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=DM+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1B1B1B}a:hover{color:#4A4A46}
+.h2{margin:0;font-weight:600;font-size:15px}
+.tab{flex:1;min-height:44px;padding:0 8px;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer}
+.pill{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:64px;padding:12px 14px;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#1B1B1B;cursor:pointer;text-align:left}
+.row{display:flex;align-items:center;gap:12px;width:100%;min-height:54px;padding:0 16px;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:15px;color:#1B1B1B;cursor:pointer;text-align:left}
+.box{display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;box-sizing:border-box;flex-shrink:0}
+.qty{width:44px;height:44px;border-radius:999px;border:1.5px solid #1B1B1B;background:#FFFFFF;color:#1B1B1B;font-size:20px;cursor:pointer}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 1320px; box-sizing: border-box; background: #F7F7F5; color: #1B1B1B; font-family: 'DM Sans', sans-serif; display: flex; flex-direction: column">
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; background: #FFFFFF; border-bottom: 1px solid #E4E4E0">
+<a href="Shop.dc.html" style="display: flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; font-weight: 600">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+Terug
+</a>
+<img src="/_blob/8d18f27b7b831b99203789a7e08606b3" alt="azro" style="display: block; height: 26px; width: auto">
+</header>
+<section style="padding: 20px 20px 0">
+<div style="display: flex; gap: 6px; padding: 4px; background: #EDEDE9; border-radius: 999px">
+<sc-for list="{{ flavors }}" as="f" hint-placeholder-count="3">
+<button class="tab" onClick="{{ f.pick }}" style="{{ f.style }}" aria-pressed="{{ f.active }}">{{ f.name }}</button>
+</sc-for>
+</div>
+</section>
+<section style="padding: 24px 20px; display: flex; flex-direction: column; gap: 26px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; line-height: 1">{{ flavorName }}</h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5F5F5A">[beschrijving: ingrediënten en smaak]</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h2 class="h2">Maat</h2>
+<div style="display: flex; gap: 10px">
+<button class="pill" onClick="{{ pickM }}" style="{{ mStyle }}" aria-pressed="{{ isM }}"><span style="font-weight: 600">Medium</span><span style="color: #5F5F5A">[gewicht] g · [PRIJS]</span></button>
+<button class="pill" onClick="{{ pickG }}" style="{{ gStyle }}" aria-pressed="{{ isG }}"><span style="font-weight: 600">Groot</span><span style="color: #5F5F5A">[gewicht] g · [PRIJS]</span></button>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h2 class="h2">Soort</h2>
+<div style="display: flex; gap: 10px">
+<button class="pill" onClick="{{ pickNormal }}" style="{{ normalStyle }}" aria-pressed="{{ isNormal }}"><span style="font-weight: 600">Normaal</span><span style="color: #5F5F5A">inbegrepen</span></button>
+<button class="pill" onClick="{{ pickGf }}" style="{{ gfStyle }}" aria-pressed="{{ gf }}"><span style="font-weight: 600">Glutenvrij</span><span style="color: #5F5F5A">+ € 1,00</span></button>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 class="h2">Extra toppings</h2>
+<span style="font-size: 13px; color: #5F5F5A">+ € 1,50 per topping</span>
+</div>
+<sc-for list="{{ toppings }}" as="t" hint-placeholder-count="3">
+<button class="row" onClick="{{ t.toggle }}" style="{{ t.rowStyle }}" aria-pressed="{{ t.checked }}">
+<span class="box" style="{{ t.boxStyle }}">
+<sc-if value="{{ t.checked }}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>
+</span>
+<span style="flex-grow: 1">{{ t.name }}</span>
+<span style="font-size: 14px; color: #5F5F5A">+ € 1,50</span>
+</button>
+</sc-for>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center">
+<h2 class="h2">Aantal</h2>
+<div style="display: flex; align-items: center; gap: 16px">
+<button class="qty" onClick="{{ minus }}" aria-label="Eén minder">−</button>
+<div style="font-size: 18px; font-weight: 600; min-width: 20px; text-align: center">{{ qty }}</div>
+<button class="qty" onClick="{{ plus }}" aria-label="Eén meer">+</button>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #FFFFFF; border: 1px solid #E4E4E0; border-radius: 14px; font-size: 14px">
+<div style="display: flex; justify-content: space-between"><span style="color: #5F5F5A">Zakje ({{ sizeLabel }})</span><span>[PRIJS]</span></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #5F5F5A">Extra's per zakje</span><span>{{ extraEach }}</span></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #5F5F5A">Aantal</span><span>× {{ qty }}</span></div>
+</div>
+
+<a href="Checkout.dc.html" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 999px; background: #CDEB7F; color: #1B1B1B; font-weight: 600; font-size: 16px; text-decoration: none; box-shadow: inset 0 0 0 1.5px #1B1B1B">In winkelmandje</a>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1320}}'>
+class Component extends DCLogic {
+constructor(p) { super(p); this.state = { flavor: 'sig', size: 'G', gf: false, tops: {}, qty: 1 }; }
+renderVals() {
+const F = {
+sig: { name: 'Signature', toppings: ['Hennepzaad', 'Bee pollen', 'Kokos gerasp'] },
+apple: { name: 'Apple Cinnamon', toppings: ['Hennepzaad', 'Bee pollen', 'Kokos gerasp'] },
+honey: { name: 'Honey Cacao', toppings: ['Cacao nibs', 'Hennepzaad', 'Kokos gerasp'] }
+};
+const s = this.state;
+const on = 'border: 2px solid #1B1B1B; background: #F3F9E2';
+const off = 'border: 1px solid #DADAD5; background: #FFFFFF';
+const fmt = (n) => '€ ' + n.toFixed(2).replace('.', ',');
+const count = F[s.flavor].toppings.filter((t) => s.tops[t]).length;
+const extra = (s.gf ? 1 : 0) + count * 1.5;
+return {
+flavors: Object.keys(F).map((k) => ({
+name: F[k].name,
+active: s.flavor === k,
+style: s.flavor === k ? 'border: none; background: #1B1B1B; color: #FFFFFF' : 'border: none; background: transparent; color: #1B1B1B',
+pick: () => this.setState({ flavor: k, tops: {} })
+})),
+flavorName: F[s.flavor].name,
+toppings: F[s.flavor].toppings.map((t) => ({
+name: t,
+checked: !!s.tops[t],
+rowStyle: s.tops[t] ? on : off,
+boxStyle: s.tops[t] ? 'background: #CDEB7F; border: 2px solid #1B1B1B' : 'background: #FFFFFF; border: 1.5px solid #8A8A84',
+toggle: () => this.setState({ tops: Object.assign({}, s.tops, { [t]: !s.tops[t] }) })
+})),
+isM: s.size === 'M', isG: s.size === 'G',
+mStyle: s.size === 'M' ? on : off, gStyle: s.size === 'G' ? on : off,
+pickM: () => this.setState({ size: 'M' }), pickG: () => this.setState({ size: 'G' }),
+gf: s.gf, isNormal: !s.gf,
+normalStyle: s.gf ? off : on, gfStyle: s.gf ? on : off,
+pickNormal: () => this.setState({ gf: false }), pickGf: () => this.setState({ gf: true }),
+sizeLabel: s.size === 'M' ? 'medium' : 'groot',
+extraEach: extra ? '+ ' + fmt(extra) : '—',
+qty: s.qty,
+minus: () => this.setState({ qty: Math.max(1, s.qty - 1) }),
+plus: () => this.setState({ qty: s.qty + 1 })
+};
+}
+}
+</script>
+</body>
+</html>
